@@ -15,8 +15,8 @@ class RequestPlayers with ChangeNotifier {
   List<Player> _players = [];
 
   Future<void> request() async {
-    //const url = 'https://free-nba.p.rapidapi.com/players?page=0&per_page=25';
-    //var dio = Dio();
+    // const url = 'https://free-nba.p.rapidapi.com/players?page=0&per_page=25';
+    // var dio = Dio();
 
     // dio.options.headers.addAll(
     //   {
@@ -24,17 +24,16 @@ class RequestPlayers with ChangeNotifier {
     //     'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
     //   },
     // );
-    //final response = await dio.get(url);
+    // final response = await dio.get(url);
+    final List<Player> loadedPlayers = [];
     var dio = getIt<DioProvider>().dio;
     final response = await dio.get('players?page=0&per_page=25');
-
     final data = response.data;
-
-    final List arr = data['data'] as List;
-    arr.forEach(
+    final List extractedData = data['data'] as List;
+    extractedData.forEach(
       (element) {
-        print('${element['first_name']} ${element['last_name']}');
-        _players.add(
+        //print('${element['first_name']} ${element['last_name']}');
+        loadedPlayers.add(
           Player(
             element['first_name'],
             element['last_name'],
@@ -42,7 +41,7 @@ class RequestPlayers with ChangeNotifier {
         );
       },
     );
-
+    _players = loadedPlayers;
     notifyListeners();
   }
 
