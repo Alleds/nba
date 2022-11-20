@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:nba/providers/request.dart';
-import 'package:provider/provider.dart';
 
 class PlayerCard extends StatelessWidget {
+  //todo final
+  //todo напомни скинуть доку по порядку элементов внутри класса
   Player player;
+
   PlayerCard(this.player);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      //todo  не используй margin
       margin: EdgeInsets.all(15),
+      //todo не хардкодим размеры
       height: 100,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        gradient: new LinearGradient(
+        gradient: LinearGradient(
           colors: [
             Color.fromARGB(255, 14, 94, 104),
             Color.fromARGB(255, 0, 0, 0),

@@ -14,16 +14,15 @@ dependencies:
   flutter:
     sdk: flutter
   dio: ^4.0.6
-  http: ^0.13.5
   provider: ^6.0.4
-  get_it: ^7.2.0
+  get_it: 7.2.0
   build_runner: 2.2.1
   flutter_gen_runner: 4.3.0
   injectable_generator: 1.5.4
-  json_annotation: ^4.7.0
-  bloc: ^8.0.1
+  json_annotation: 4.6.0
+  flutter_bloc: 7.3.3
   auto_route: ^3.2.0
-  injectable: ^1.5.4
+  injectable: 1.5.3
   release_updater: ^1.0.24
   path_provider: ^2.0.11
   dio_cache_interceptor: ^2.0.0-beta.1
@@ -34,7 +33,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  json_serializable: any
+  json_serializable: 6.3.2
+  #  почитай
+  freezed: 2.1.0+1
+  freezed_annotation: 2.1.0
 
 
   flutter_lints: ^2.0.0

@@ -1,20 +1,27 @@
-import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:nba/di/service_locator.dart';
 import 'package:nba/dio_container.dart';
 
+//todo camelCase
 class Player {
+  //todo нужно типизировать
   final first_name;
   final last_name;
+
+  //todo named paraaments
   Player(this.first_name, this.last_name);
 }
 
+//todo rename
+//todo remove provider (move to cubit)
+//todo раздели "RequestPlayers" и нетворк
 class RequestPlayers with ChangeNotifier {
   List<Player> _players = [];
 
   Future<void> request() async {
+    //todo never push dead code
     // const url = 'https://free-nba.p.rapidapi.com/players?page=0&per_page=25';
     // var dio = Dio();
 

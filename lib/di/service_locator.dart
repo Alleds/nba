@@ -13,23 +13,3 @@ T getIt<T extends Object>({
     param2: param2,
   );
 }
-
-// /// Возвращает зависимость для текущей платформы
-// T getItForPlatform<T extends Object>({
-//   dynamic param1,
-//   dynamic param2,
-// }) {
-//   return sl.get<T>(
-//     instanceName: OperatingSystems.current,
-//     param1: param1,
-//     param2: param2,
-//   );
-// }
-
-extension SafeGetIt on GetIt {
-  T? getIfRegistered<T extends Object>(
-          {Object? instance, String? instanceName}) =>
-      isRegistered<T>(instanceName: instanceName, instance: instance)
-          ? get<T>(instanceName: instanceName)
-          : null;
-}
