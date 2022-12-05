@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import './di/injectable.dart';
 
 void main() {
-  configureDependencies('enviroment');
+  configureDependencies();
   runApp(const MyApp());
 }
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
-          value: RequestPlayers(),
+          value: PlayersProvider(),
         ),
       ],
       child: MaterialApp(
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.indigo,
         ),
-        home: StartScreen(),
+        home: const StartScreen(),
       ),
     );
   }

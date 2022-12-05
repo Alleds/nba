@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../providers/request.dart';
 
 class StartScreen extends StatefulWidget {
+  const StartScreen({super.key});
+
   @override
   State<StartScreen> createState() => _StartScreenState();
 }
@@ -11,9 +13,10 @@ class StartScreen extends StatefulWidget {
 class _StartScreenState extends State<StartScreen> {
   var _isInit = true;
 
+  @override
   void didChangeDependencies() {
     if (_isInit) {
-      Provider.of<RequestPlayers>(context).request().then((_) {});
+      context.watch<PlayersProvider>().request().then((_) {});
     }
     _isInit = false;
     super.didChangeDependencies();
@@ -21,17 +24,17 @@ class _StartScreenState extends State<StartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print('object');
-    final playersData = Provider.of<RequestPlayers>(context);
+    final playersData = context.read<PlayersProvider>();
     final List<Player> players = playersData.players;
     return Scaffold(
       appBar: AppBar(
-        title: Text('NBA Players'),
-        backgroundColor: Color.fromARGB(255, 14, 94, 104),
+        title: const Text('NBA Players'),
+        backgroundColor: const Color.fromARGB(255, 14, 94, 104),
       ),
       body: Center(
           child: ListView.builder(
-              itemBuilder: ((ctx, index) => PlayerCard(players[index])),
+              itemBuilder: ((ctx, index) =>
+                  PlayerCard(players.elementAt(index))),
               itemCount: players.length)),
     );
   }
