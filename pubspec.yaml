@@ -17,7 +17,7 @@ dependencies:
   build_runner: 2.2.1
   flutter_gen_runner: 4.3.0
   injectable_generator: 1.5.4
-  json_annotation: ^4.7.0
+  json_annotation: 4.6.0
   flutter_bloc: 7.3.3
   auto_route: ^3.2.0
   injectable: ^1.5.4
@@ -30,7 +30,11 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  json_serializable: any
+  json_serializable: 6.3.2
+
+  freezed: 2.1.0+1
+  freezed_annotation: 2.1.0
+
   flutter_lints: ^2.0.0
 
 flutter:

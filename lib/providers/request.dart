@@ -7,7 +7,7 @@ import 'package:nba/dio_container.dart';
 class Player {
   final String firstName;
   final String lastName;
-  Player(this.firstName, this.lastName);
+  Player({required this.firstName, required this.lastName});
 }
 
 class PlayersProvider with ChangeNotifier {
@@ -22,8 +22,8 @@ class PlayersProvider with ChangeNotifier {
     for (var element in extractedData) {
       loadedPlayers.add(
         Player(
-          element['first_name'],
-          element['last_name'],
+          firstName: element['first_name'],
+          lastName: element['last_name'],
         ),
       );
     }
