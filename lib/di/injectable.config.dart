@@ -8,7 +8,11 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../dio_container.dart' as _i3; // ignore_for_file: unnecessary_lambdas
+import '../players_list/data/network_service/dio_container.dart' as _i3;
+import '../players_list/data/repository/players_list_network_repository.dart'
+    as _i5;
+import '../players_list/domain/repository/players_list_repository.dart'
+    as _i4; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -23,5 +27,7 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   gh.factory<_i3.DioProvider>(() => _i3.DioProvider());
+  gh.factory<_i4.PlayersListRepository>(
+      () => _i5.PlayersListNetworkRepository());
   return get;
 }

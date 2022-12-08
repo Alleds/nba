@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:nba/di/service_locator.dart';
-import 'package:nba/dio_container.dart';
+import 'package:nba/players_list/data/network_service/dio_container.dart';
 
 class Player {
   final String firstName;

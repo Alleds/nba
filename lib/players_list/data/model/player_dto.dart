@@ -15,4 +15,6 @@ class PlayerDto {
   factory PlayerDto.fromJson(Map<String, dynamic> json) {
     return _$PlayerDtoFromJson(json);
   }
+
+  Map<String, dynamic> toJson() => _$PlayerDtoToJson(this);
 }

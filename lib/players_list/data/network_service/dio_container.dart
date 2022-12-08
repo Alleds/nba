@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:nba/di/service_locator.dart';
 
 @Injectable()
 class DioProvider {
@@ -37,4 +38,8 @@ class DioProvider {
     dio.interceptors
         .removeWhere((element) => element.runtimeType == interceptorType);
   }
+}
+
+mixin DioProviderMixin {
+  Dio get dio => getIt<DioProvider>().dio;
 }

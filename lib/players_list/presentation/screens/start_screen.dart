@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:nba/widgets/player_card.dart';
+import 'package:nba/players_list/presentation/components/player_card.dart';
 import 'package:provider/provider.dart';
-import '../providers/request.dart';
+import '../../../providers/request.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
