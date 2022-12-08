@@ -24,7 +24,7 @@ dependencies:
   release_updater: ^1.0.24
   path_provider: ^2.0.11
   dio_cache_interceptor: ^2.0.0-beta.1
-
+  freezed_annotation: 2.1.0
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -33,7 +33,6 @@ dev_dependencies:
   json_serializable: 6.3.2
 
   freezed: 2.1.0+1
-  freezed_annotation: 2.1.0
 
   flutter_lints: ^2.0.0
 

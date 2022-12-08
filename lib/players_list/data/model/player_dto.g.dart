@@ -7,11 +7,11 @@ part of 'player_dto.dart';
 // **************************************************************************
 
 PlayerDto _$PlayerDtoFromJson(Map<String, dynamic> json) => PlayerDto(
-      firstName: json['firstName'] as String?,
-      secondName: json['secondName'] as String?,
+      firstName: json['first_name'] as String?,
+      secondName: json['last_name'] as String?,
     );
 
 Map<String, dynamic> _$PlayerDtoToJson(PlayerDto instance) => <String, dynamic>{
-      'firstName': instance.firstName,
-      'secondName': instance.secondName,
+      'first_name': instance.firstName,
+      'last_name': instance.secondName,
     };

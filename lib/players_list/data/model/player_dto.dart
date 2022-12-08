@@ -8,8 +8,9 @@ class PlayerDto {
     this.firstName,
     this.secondName,
   });
-
+  @JsonKey(name: "first_name")
   final String? firstName;
+  @JsonKey(name: "last_name")
   final String? secondName;
 
   factory PlayerDto.fromJson(Map<String, dynamic> json) {

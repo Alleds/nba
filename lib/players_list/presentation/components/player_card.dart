@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:nba/providers/request.dart';
+import '../../data/model/player_dto.dart';
 
 class PlayerCard extends StatelessWidget {
-  final Player player;
+  final PlayerDto player;
   const PlayerCard(this.player, {super.key});
 
   @override
@@ -27,7 +27,7 @@ class PlayerCard extends StatelessWidget {
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.all(20),
           child: Text(
-            '${player.firstName} ${player.lastName}',
+            '${player.firstName} ${player.secondName}',
             style: const TextStyle(
               fontSize: 35,
               color: Colors.white,
