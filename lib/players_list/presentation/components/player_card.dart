@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import '../../data/model/player_dto.dart';
 
 class PlayerCard extends StatelessWidget {
-  final PlayerDto player;
   const PlayerCard(this.player, {super.key});
+
+  final PlayerDto player;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12.5),
-      child: AspectRatio(
-        aspectRatio: 10 / 3,
+    return AspectRatio(
+      aspectRatio: 10 / 3,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),

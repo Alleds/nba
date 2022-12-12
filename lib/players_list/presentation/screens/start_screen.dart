@@ -17,29 +17,36 @@ class StartScreen extends StatelessWidget {
       body: BlocBuilder<PlayersCubit, PlayerState>(
         builder: (context, state) {
           if (state.field?.hasData == true) {
+            final data = state.field!.data!;
+            return ListView.builder(
+              itemBuilder: ((context, index) {
+                return PlayerCard(
+                  data.elementAt(index),
+                );
+              }),
+              itemCount: data.length,
+            );
+          }
+          if (state.field?.error != null) {
             return Center(
-              child: ListView.builder(
-                itemBuilder: ((context, index) {
-                  return PlayerCard(
-                    state.field!.data!.elementAt(index),
-                  );
-                }),
-                itemCount: state.field?.data?.length,
+              child: Text(state.field!.error!.toString()),
+            );
+          }
+          if (state.field?.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text('Data is loading'),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  CircularProgressIndicator(),
+                ],
               ),
             );
           }
-          if (state.field!.hasError == true) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-          if (state.field!.connectionState == ConnectionState.waiting) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else {
-            return const Center();
-          }
+          return const SizedBox();
         },
       ),
     );

@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'MyApp',
+        title: 'NBA app',
         theme: ThemeData(
           primarySwatch: Colors.indigo,
         ),

@@ -17,7 +17,7 @@ class PlayersListNetworkRepository extends PlayersListRepository
         );
       });
     } catch (e) {
-      throw 'sorry';
+      throw 'something went wrong';
     }
   }
 }
