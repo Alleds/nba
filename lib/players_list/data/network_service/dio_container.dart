@@ -1,24 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:release_updater/release_updater.dart';
-import 'package:path_provider/path_provider.dart';
-import 'dart:convert';
+import 'package:nba/di/service_locator.dart';
 
-@module
-abstract class DioProviderModule {
-  @preResolve
-  Future<DioProvider> dioProvider(serverConfigProvider) {
-    return Future.microtask(() async {
-      final provider = DioProvider(serverConfigProvider.config);
-      //await provider.initCacheInterceptor();
-      return provider;
-    });
-  }
-}
-
-//@Injectable()
+@Injectable()
 class DioProvider {
-  DioProvider(url) {
+  DioProvider() {
     final options = BaseOptions(
       baseUrl: 'https://free-nba.p.rapidapi.com/',
       connectTimeout: 15000,
@@ -52,4 +38,8 @@ class DioProvider {
     dio.interceptors
         .removeWhere((element) => element.runtimeType == interceptorType);
   }
+}
+
+mixin DioProviderMixin {
+  Dio get dio => getIt<DioProvider>().dio;
 }
