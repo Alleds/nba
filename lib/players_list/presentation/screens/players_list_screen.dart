@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nba/players_list/presentation/components/loading_indicator.dart';
 import 'package:nba/players_list/presentation/components/player_card.dart';
-import '../../domain/cubit/players_cubit.dart';
-import '../../domain/model/player_state.dart';
+import '../../domain/cubit/players_list_cubit.dart';
+import '../../domain/model/players_list_state.dart';
 
-class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+class PlayersListScreen extends StatelessWidget {
+  const PlayersListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,7 @@ class StartScreen extends StatelessWidget {
         title: const Text('NBA Players'),
         backgroundColor: const Color.fromARGB(255, 14, 94, 104),
       ),
-      body: BlocBuilder<PlayersCubit, PlayerState>(
+      body: BlocBuilder<PlayersListCubit, PlayersListState>(
         builder: (context, state) {
           if (state.field?.hasData == true) {
             final data = state.field!.data!;
@@ -33,18 +34,7 @@ class StartScreen extends StatelessWidget {
             );
           }
           if (state.field?.connectionState == ConnectionState.waiting) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Text('Data is loading'),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  CircularProgressIndicator(),
-                ],
-              ),
-            );
+            return const LoadingIndicator();
           }
           return const SizedBox();
         },

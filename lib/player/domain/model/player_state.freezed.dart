@@ -16,8 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PlayerState {
-  AsyncSnapshot<Iterable<PlayerDto>>? get field =>
-      throw _privateConstructorUsedError;
+  AsyncSnapshot<PlayerDto>? get field => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayerStateCopyWith<PlayerState> get copyWith =>
@@ -29,7 +28,7 @@ abstract class $PlayerStateCopyWith<$Res> {
   factory $PlayerStateCopyWith(
           PlayerState value, $Res Function(PlayerState) then) =
       _$PlayerStateCopyWithImpl<$Res>;
-  $Res call({AsyncSnapshot<Iterable<PlayerDto>>? field});
+  $Res call({AsyncSnapshot<PlayerDto>? field});
 }
 
 /// @nodoc
@@ -48,7 +47,7 @@ class _$PlayerStateCopyWithImpl<$Res> implements $PlayerStateCopyWith<$Res> {
       field: field == freezed
           ? _value.field
           : field // ignore: cast_nullable_to_non_nullable
-              as AsyncSnapshot<Iterable<PlayerDto>>?,
+              as AsyncSnapshot<PlayerDto>?,
     ));
   }
 }
@@ -60,7 +59,7 @@ abstract class _$$_PlayerStateCopyWith<$Res>
           _$_PlayerState value, $Res Function(_$_PlayerState) then) =
       __$$_PlayerStateCopyWithImpl<$Res>;
   @override
-  $Res call({AsyncSnapshot<Iterable<PlayerDto>>? field});
+  $Res call({AsyncSnapshot<PlayerDto>? field});
 }
 
 /// @nodoc
@@ -81,7 +80,7 @@ class __$$_PlayerStateCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
       field: field == freezed
           ? _value.field
           : field // ignore: cast_nullable_to_non_nullable
-              as AsyncSnapshot<Iterable<PlayerDto>>?,
+              as AsyncSnapshot<PlayerDto>?,
     ));
   }
 }
@@ -92,7 +91,7 @@ class _$_PlayerState implements _PlayerState {
   const _$_PlayerState({this.field});
 
   @override
-  final AsyncSnapshot<Iterable<PlayerDto>>? field;
+  final AsyncSnapshot<PlayerDto>? field;
 
   @override
   String toString() {
@@ -118,11 +117,11 @@ class _$_PlayerState implements _PlayerState {
 }
 
 abstract class _PlayerState implements PlayerState {
-  const factory _PlayerState(
-      {final AsyncSnapshot<Iterable<PlayerDto>>? field}) = _$_PlayerState;
+  const factory _PlayerState({final AsyncSnapshot<PlayerDto>? field}) =
+      _$_PlayerState;
 
   @override
-  AsyncSnapshot<Iterable<PlayerDto>>? get field;
+  AsyncSnapshot<PlayerDto>? get field;
   @override
   @JsonKey(ignore: true)
   _$$_PlayerStateCopyWith<_$_PlayerState> get copyWith =>

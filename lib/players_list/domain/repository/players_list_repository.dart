@@ -1,5 +1,5 @@
-import 'package:nba/players_list/data/model/player_dto.dart';
+import 'package:nba/players_list/data/model/players_list_dto.dart';
 
 abstract class PlayersListRepository {
-  Future<Iterable<PlayerDto>> fetchPlayers({int? count, int? page});
+  Future<Iterable<PlayersListDto>> fetchPlayers({int? count, int? page});
 }

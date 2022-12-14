@@ -1,23 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nba/players_list/domain/model/player_state.dart';
-import 'package:nba/players_list/domain/repository/players_list_repository.dart';
+import 'package:nba/player/data/model/player_dto.dart';
+import 'package:nba/player/domain/model/player_state.dart';
+import 'package:nba/player/domain/repository/player_repository.dart';
 
-import '../../data/model/player_dto.dart';
-
-class PlayersCubit extends Cubit<PlayerState> {
-  PlayersCubit(this.repository)
+class PlayerCubit extends Cubit<PlayerState> {
+  PlayerCubit(this.repository)
       : super(
           const PlayerState(),
         );
 
-  final PlayersListRepository repository;
+  final PlayerRepository repository;
 
-  Future<void> fetchPlayers() {
+  Future<void> fetchPerson(int id) {
     _onFieldUpdated(
       const AsyncSnapshot.waiting(),
     );
-    return repository.fetchPlayers().then(
+    return repository.fetchPerson(id: id).then(
       (value) {
         _onFieldUpdated(
           AsyncSnapshot.withData(ConnectionState.done, value),
@@ -32,7 +31,7 @@ class PlayersCubit extends Cubit<PlayerState> {
     );
   }
 
-  void _onFieldUpdated(AsyncSnapshot<Iterable<PlayerDto>> field) {
+  void _onFieldUpdated(AsyncSnapshot<PlayerDto> field) {
     emit(
       state.copyWith(field: field),
     );
