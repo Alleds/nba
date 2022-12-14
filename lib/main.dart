@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nba/di/service_locator.dart';
 import 'package:nba/players_list/domain/cubit/players_list_cubit.dart';
 import 'package:nba/players_list/domain/repository/players_list_repository.dart';
-import 'package:nba/players_list/presentation/screens/players_list_screen.dart';
+import 'package:nba/players_list/presentation/screens/navigator_screen.dart';
 import 'package:provider/provider.dart';
 import './di/injectable.dart';
 import 'package:device_preview/device_preview.dart';
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.indigo,
         ),
-        home: const PlayersListScreen(),
+        home: const NavigatorScreen(),
       ),
     );
   }
