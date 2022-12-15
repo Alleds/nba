@@ -13,11 +13,11 @@ class PlayersListCubit extends Cubit<PlayersListState> {
 
   final PlayersListRepository repository;
 
-  Future<void> fetchPlayers() {
+  Future<void> fetchPlayers(int count, int page) {
     _onFieldUpdated(
       const AsyncSnapshot.waiting(),
     );
-    return repository.fetchPlayers().then(
+    return repository.fetchPlayers(count: count, page: page).then(
       (value) {
         _onFieldUpdated(
           AsyncSnapshot.withData(ConnectionState.done, value),

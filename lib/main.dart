@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => PlayersListCubit(
             getIt<PlayersListRepository>(),
-          )..fetchPlayers(),
+          )..fetchPlayers(1, 20),
         ),
       ],
       child: MaterialApp(

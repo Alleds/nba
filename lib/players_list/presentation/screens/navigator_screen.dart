@@ -11,9 +11,9 @@ class NavigatorScreen extends StatefulWidget {
 
 class _NavigatorScreenState extends State<NavigatorScreen> {
   int _selectedIndex = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    PlayersListScreen(),
-    GamesScreen()
+  static final List<Widget> _widgetOptions = <Widget>[
+    const PlayersListScreen(),
+    const GamesScreen()
   ];
 
   void _onItemTapped(int index) {
