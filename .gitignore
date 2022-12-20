@@ -44,3 +44,5 @@ app.*.map.json
 /android/app/release
 /pubspec.lock
 /notes.md
+/.vscode/launch.json
+/macos/Flutter/GeneratedPluginRegistrant.swift

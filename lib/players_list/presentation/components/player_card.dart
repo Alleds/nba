@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nba/player/presentation/screens/player_screen.dart';
-import '../../data/model/players_list_dto.dart';
+import 'package:nba/player/presentation/components/app_colors.dart';
+import '../../data/model/player_dto.dart';
 
 class PlayerCard extends StatelessWidget {
-  const PlayerCard(this.player, {super.key});
+  const PlayerCard(this.player, {super.key, required this.onTap});
 
-  final PlayersListDto player;
+  final PlayerDto player;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +16,16 @@ class PlayerCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
         child: GestureDetector(
-          onTap: () => playerId == null
-              ? null
-              : Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => PlayerScreen(playerId),
-                  ),
-                ),
+          onTap: () {
+            playerId == null ? null : onTap();
+          },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               gradient: const LinearGradient(
                 colors: [
-                  Color.fromARGB(255, 14, 94, 104),
-                  Color.fromARGB(255, 0, 0, 0),
+                  AppColors.mainColor,
+                  Colors.black,
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,

@@ -4,6 +4,8 @@ import 'package:nba/di/service_locator.dart';
 
 @Injectable()
 class DioProvider {
+  final String apiToken = '4bdb42fc8bmsh0517fa4ab58fa4dp18fef3jsn22de2d4a74dd';
+
   DioProvider() {
     final options = BaseOptions(
       baseUrl: 'https://free-nba.p.rapidapi.com/',
@@ -11,7 +13,7 @@ class DioProvider {
       receiveTimeout: 15000,
       contentType: Headers.jsonContentType,
       headers: {
-        'X-RapidAPI-Key': '4bdb42fc8bmsh0517fa4ab58fa4dp18fef3jsn22de2d4a74dd',
+        'X-RapidAPI-Key': apiToken,
         'X-RapidAPI-Host': 'free-nba.p.rapidapi.com'
       },
     );

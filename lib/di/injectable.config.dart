@@ -8,9 +8,10 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../network_service/dio_container.dart' as _i3;
-import '../player/data/repository/person_network_repository.dart' as _i5;
-import '../player/domain/repository/player_repository.dart' as _i4;
+import '../network_service/dio_container.dart' as _i5;
+import '../player/data/repository/detailed_player_network_repository.dart'
+    as _i4;
+import '../player/domain/repository/detailed_player_repository.dart' as _i3;
 import '../players_list/data/repository/players_list_network_repository.dart'
     as _i7;
 import '../players_list/domain/repository/players_list_repository.dart'
@@ -28,8 +29,9 @@ _i1.GetIt $initGetIt(
     environment,
     environmentFilter,
   );
-  gh.factory<_i3.DioProvider>(() => _i3.DioProvider());
-  gh.factory<_i4.PlayerRepository>(() => _i5.PlayerNetworkRepository());
+  gh.factory<_i3.DetailedPlayerRepository>(
+      () => _i4.DetailedPlayerNetworkRepository());
+  gh.factory<_i5.DioProvider>(() => _i5.DioProvider());
   gh.factory<_i6.PlayersListRepository>(
       () => _i7.PlayersListNetworkRepository());
   return get;

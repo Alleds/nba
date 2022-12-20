@@ -3,16 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nba/di/service_locator.dart';
 import 'package:nba/players_list/domain/cubit/players_list_cubit.dart';
 import 'package:nba/players_list/domain/repository/players_list_repository.dart';
-import 'package:nba/players_list/presentation/screens/navigator_screen.dart';
+import 'package:nba/routes/app_router.gr.dart';
 import 'package:provider/provider.dart';
 import './di/injectable.dart';
 import 'package:device_preview/device_preview.dart';
 
-void main() {
-  configureDependencies();
+void main() async {
+  await configureDependencies();
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => const MyApp(),
     ),
   );
@@ -21,22 +21,26 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  static final _appRouter = AppRouter();
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         BlocProvider(
-          create: (_) => PlayersListCubit(
+          create: (_) => PlayersListStore(
             getIt<PlayersListRepository>(),
-          )..fetchPlayers(1, 20),
+          )..fetchPlayers(),
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         title: 'NBA app',
         theme: ThemeData(
-          primarySwatch: Colors.indigo,
+          primarySwatch: Colors.blueGrey,
         ),
-        home: const NavigatorScreen(),
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
       ),
     );
   }
