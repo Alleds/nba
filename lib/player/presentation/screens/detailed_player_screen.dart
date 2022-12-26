@@ -4,9 +4,9 @@ import 'package:nba/di/service_locator.dart';
 import 'package:nba/player/domain/cubit/detailed_player_cubit.dart';
 import 'package:nba/player/domain/model/detailed_player_state.dart';
 import 'package:nba/player/domain/repository/detailed_player_repository.dart';
-import 'package:nba/player/presentation/components/app_colors.dart';
+import 'package:nba/player/presentation/themes/app_colors.dart';
 import 'package:nba/player/presentation/components/detailed_player_card.dart';
-import 'package:nba/players_list/presentation/components/loading_indicator.dart';
+import 'package:nba/uikit/loading_indicator.dart';
 
 class DetailedPlayerScreen extends StatelessWidget {
   const DetailedPlayerScreen(this.id, {super.key});

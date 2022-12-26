@@ -15,6 +15,10 @@ class DetailedPlayerDto {
     this.team,
   });
 
+  factory DetailedPlayerDto.fromJson(Map<String, dynamic> json) {
+    return _$DetailedPlayerDtoFromJson(json);
+  }
+
   @JsonKey(name: "first_name")
   final String? firstName;
   @JsonKey(name: "last_name")
@@ -27,10 +31,6 @@ class DetailedPlayerDto {
   @JsonKey(name: "weight_pounds")
   final int? weightPounds;
   final TeamDto? team;
-
-  factory DetailedPlayerDto.fromJson(Map<String, dynamic> json) {
-    return _$DetailedPlayerDtoFromJson(json);
-  }
 
   Map<String, dynamic> toJson() => _$DetailedPlayerDtoToJson(this);
 }

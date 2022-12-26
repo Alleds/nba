@@ -7,15 +7,15 @@ import 'package:nba/network_service/dio_container.dart';
 @Injectable(as: DetailedPlayerRepository)
 class DetailedPlayerNetworkRepository extends DetailedPlayerRepository
     with DioProviderMixin {
+
   @override
   Future<DetailedPlayerDto> fetchPerson({
     int? id,
   }) {
-    const path = 'players';
-
+    final path = 'players/$id';
     try {
-      return dio.get('$path/$id').then(
-        (response) {
+      return dio.get(path).then(
+            (response) {
           return DetailedPlayerDto.fromJson(response.data);
         },
       );

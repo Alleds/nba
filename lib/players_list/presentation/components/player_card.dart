@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:nba/player/presentation/components/app_colors.dart';
+import 'package:nba/player/presentation/themes/app_colors.dart';
+import '../../../player/presentation/themes/app_textstyles.dart';
 import '../../data/model/player_dto.dart';
 
 class PlayerCard extends StatelessWidget {
-  const PlayerCard(this.player, {super.key, required this.onTap});
+  const PlayerCard({
+    required this.player,
+    required this.onTap,
+    super.key,
+  });
 
   final PlayerDto player;
   final VoidCallback onTap;
@@ -36,11 +41,7 @@ class PlayerCard extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: Text(
               '${player.firstName} ${player.secondName}',
-              style: const TextStyle(
-                fontSize: 35,
-                color: Colors.white,
-                fontWeight: FontWeight.w200,
-              ),
+              style: TextStyles.playerTextStyle,
             ),
           ),
         ),

@@ -14,6 +14,10 @@ class TeamDto {
     this.name,
   });
 
+  factory TeamDto.fromJson(Map<String, dynamic> json) {
+    return _$TeamDtoFromJson(json);
+  }
+
   final int? id;
   final String? abbreviation;
   final String? city;
@@ -23,11 +27,5 @@ class TeamDto {
   final String? fullName;
   final String? name;
 
-  factory TeamDto.fromJson(Map<String, dynamic> json) {
-    return _$TeamDtoFromJson(json);
-  }
-
   Map<String, dynamic> toJson() => _$TeamDtoToJson(this);
-
-
 }

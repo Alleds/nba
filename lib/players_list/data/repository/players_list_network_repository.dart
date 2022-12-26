@@ -6,6 +6,7 @@ import 'package:nba/players_list/domain/repository/players_list_repository.dart'
 @Injectable(as: PlayersListRepository)
 class PlayersListNetworkRepository extends PlayersListRepository
     with DioProviderMixin {
+
   @override
   Future<Iterable<PlayerDto>> fetchPlayers({
     int? page,
@@ -15,9 +16,9 @@ class PlayersListNetworkRepository extends PlayersListRepository
     final queries = {'page': page ?? 150, 'per_page': count ?? 25};
     try {
       return dio.get(path, queryParameters: queries).then(
-        (response) {
+            (response) {
           return (response.data['data'] as List).map(
-            (e) => PlayerDto.fromJson(e),
+                (e) => PlayerDto.fromJson(e),
           );
         },
       );

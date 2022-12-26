@@ -3,12 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nba/di/service_locator.dart';
 import 'package:nba/players_list/domain/cubit/players_list_cubit.dart';
 import 'package:nba/players_list/domain/repository/players_list_repository.dart';
-import 'package:nba/routes/app_router.gr.dart';
-import 'package:provider/provider.dart';
+import 'package:nba/players_list/presentation/screens/root_screen.dart';
 import './di/injectable.dart';
 import 'package:device_preview/device_preview.dart';
 
-void main() async {
+Future<void> main() async {
   await configureDependencies();
   runApp(
     DevicePreview(
@@ -21,11 +20,9 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static final _appRouter = AppRouter();
-
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (_) => PlayersListStore(
@@ -33,14 +30,12 @@ class MyApp extends StatelessWidget {
           )..fetchPlayers(),
         ),
       ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
+      child: MaterialApp(
         title: 'NBA app',
         theme: ThemeData(
-          primarySwatch: Colors.blueGrey,
+          primarySwatch: Colors.indigo,
         ),
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
+        home: const RootScreen(),
       ),
     );
   }

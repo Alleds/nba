@@ -19,7 +19,7 @@ dependencies:
   injectable_generator: 1.5.4
   json_annotation: 4.6.0
   flutter_bloc: 7.3.3
-  auto_route: ^5.0.4
+  auto_route: 5.0.4
   injectable: ^1.5.4
   release_updater: ^1.0.24
   path_provider: ^2.0.11

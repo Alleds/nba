@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nba/player/data/model/detailed_player_dto.dart';
-import './app_colors.dart';
+import '../themes/app_textstyles.dart';
 
 class DetailedPlayerCard extends StatelessWidget {
   const DetailedPlayerCard({
@@ -9,11 +9,6 @@ class DetailedPlayerCard extends StatelessWidget {
   }) : super(key: key);
 
   final DetailedPlayerDto data;
-  static const textStyle = TextStyle(
-    fontSize: 25,
-    color: Colors.black,
-    fontWeight: FontWeight.w400,
-  );
 
   @override
   Widget build(BuildContext context) {
@@ -21,28 +16,15 @@ class DetailedPlayerCard extends StatelessWidget {
       padding: const EdgeInsets.all(10),
       child: Column(
         children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              gradient: const LinearGradient(
-                colors: [
-                  AppColors.playerCardGradientWhite,
-                  AppColors.playerCardGradientGreen,
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                stops: [0, 0.95],
-              ),
-            ),
-            alignment: Alignment.centerLeft,
-            padding: const EdgeInsets.all(20),
+          Flexible(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _playerFullName(),
-                _divider(),
+                _buildDivider(),
                 _playerTeam(),
-                _playerHeight(),
+                _playerHeightInches(),
+                _playerHeightFeet(),
                 _playerWeight()
               ],
             ),
@@ -53,70 +35,76 @@ class DetailedPlayerCard extends StatelessWidget {
   }
 
   Widget _playerFullName() {
-    return data.firstName == null || data.lastName == null
-        ? const SizedBox()
-        : ConstrainedBox(
-            constraints: const BoxConstraints.tightForFinite(),
-            child: Text(
-              '${data.firstName} ${data.lastName}',
-              style: const TextStyle(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          );
+    if (data.firstName == null || data.lastName == null) {
+      return const SizedBox();
+    }
+    return Flexible(
+      child: Text(
+        '${data.firstName} ${data.lastName}',
+        style: TextStyles.boldTextStyle,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
   }
 
   Widget _playerTeam() {
-    return data.team?.fullName == null
-        ? const SizedBox()
-        : ConstrainedBox(
-            constraints: const BoxConstraints.tightForFinite(),
-            child: Text(
-              'Team: ${data.team?.fullName}',
-              style: textStyle,
-            ),
-          );
+    if (data.team?.fullName == null) {
+      return const SizedBox();
+    }
+    return Flexible(
+      child: Text(
+        'Team: ${data.team!.fullName}',
+        style: TextStyles.mainTextStyle,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
   }
 
-  Widget _playerHeight() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        data.heightFeet == null
-            ? const SizedBox()
-            : ConstrainedBox(
-                constraints: const BoxConstraints.tightForFinite(),
-                child: Text(
-                  'Height Feet: ${data.heightFeet}',
-                  style: textStyle,
-                ),
-              ),
-        data.heightInches == null
-            ? const SizedBox()
-            : ConstrainedBox(
-                constraints: const BoxConstraints.tightForFinite(),
-                child: Text(
-                  'Height Inches: ${data.heightInches}',
-                  style: textStyle,
-                ),
-              )
-      ],
+  Widget _playerHeightInches() {
+    if (data.heightInches == null) {
+      return const SizedBox();
+    }
+    return Flexible(
+      child: Text(
+        'Height Inches: ${data.heightInches}',
+        style: TextStyles.mainTextStyle,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
+  }
+
+  Widget _playerHeightFeet() {
+    if (data.heightFeet == null) {
+      return const SizedBox();
+    }
+    return Flexible(
+      child: Text(
+        'Height Feet: ${data.heightFeet}',
+        style: TextStyles.mainTextStyle,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
     );
   }
 
   Widget _playerWeight() {
-    return data.weightPounds == null
-        ? const SizedBox()
-        : ConstrainedBox(
-            constraints: const BoxConstraints.tightForFinite(),
-            child: Text(
-              'Weight: ${data.weightPounds} pound',
-              style: textStyle,
-            ));
+    if (data.weightPounds == null) {
+      return const SizedBox();
+    }
+    return Flexible(
+      child: Text(
+        'Weight: ${data.weightPounds} pound',
+        style: TextStyles.mainTextStyle,
+        maxLines: 2,
+        overflow: TextOverflow.ellipsis,
+      ),
+    );
   }
 
-  Divider _divider() {
+  Widget _buildDivider() {
     return const Divider(
       color: Colors.black87,
       indent: 8,

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
-// ignore: unused_import
-import 'package:nba/player/presentation/components/app_colors.dart';
+import 'package:nba/player/presentation/themes/app_colors.dart';
 
 class GamesScreen extends StatelessWidget {
   const GamesScreen({super.key});
@@ -11,7 +9,7 @@ class GamesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('NBA Games'),
-        backgroundColor: const Color.fromARGB(255, 14, 94, 104),
+        backgroundColor: AppColors.mainColor,
       ),
       body: const Center(
         child: Text(
