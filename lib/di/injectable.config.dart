@@ -8,7 +8,7 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import '../network_service/dio_container.dart' as _i5;
+import '../app/data/service/network_service/dio_container.dart' as _i5;
 import '../player/data/repository/detailed_player_network_repository.dart'
     as _i4;
 import '../player/domain/repository/detailed_player_repository.dart' as _i3;
@@ -31,7 +31,7 @@ _i1.GetIt $initGetIt(
   );
   gh.factory<_i3.DetailedPlayerRepository>(
       () => _i4.DetailedPlayerNetworkRepository());
-  gh.factory<_i5.DioProvider>(() => _i5.DioProvider());
+  gh.singleton<_i5.DioProvider>(_i5.DioProvider());
   gh.factory<_i6.PlayersListRepository>(
       () => _i7.PlayersListNetworkRepository());
   return get;

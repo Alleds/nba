@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nba/app/data/service/network_service/auth_interceptor.dart';
+import 'package:nba/app/data/service/network_service/dio_container.dart';
 import 'package:nba/di/service_locator.dart';
 import 'package:nba/players_list/domain/cubit/players_list_cubit.dart';
 import 'package:nba/players_list/domain/repository/players_list_repository.dart';
@@ -9,6 +11,7 @@ import 'package:device_preview/device_preview.dart';
 
 Future<void> main() async {
   await configureDependencies();
+  getIt<DioProvider>().addInterceptor(AuthInterceptor());
   runApp(
     DevicePreview(
       enabled: false,
