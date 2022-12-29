@@ -27,16 +27,17 @@ class PlayersListScreen extends StatelessWidget {
                 final element = data.elementAt(index);
                 return PlayerCard(
                   player: element,
-                  onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) {
-                        if (element.id == null) {
-                          return const SizedBox();
-                        }
-                        return DetailedPlayerScreen(element.id!);
-                      },
-                    ),
-                  ),
+                  onTap: () {
+                    if (element.id != null) {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) {
+                            return DetailedPlayerScreen(element.id!);
+                          },
+                        ),
+                      );
+                    }
+                  },
                 );
               }),
             );
