@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'player_state.dart';
+part of 'players_list_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,30 +15,31 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PlayerState {
+mixin _$PlayersListState {
   AsyncSnapshot<Iterable<PlayerDto>>? get field =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $PlayerStateCopyWith<PlayerState> get copyWith =>
+  $PlayersListStateCopyWith<PlayersListState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PlayerStateCopyWith<$Res> {
-  factory $PlayerStateCopyWith(
-          PlayerState value, $Res Function(PlayerState) then) =
-      _$PlayerStateCopyWithImpl<$Res>;
+abstract class $PlayersListStateCopyWith<$Res> {
+  factory $PlayersListStateCopyWith(
+          PlayersListState value, $Res Function(PlayersListState) then) =
+      _$PlayersListStateCopyWithImpl<$Res>;
   $Res call({AsyncSnapshot<Iterable<PlayerDto>>? field});
 }
 
 /// @nodoc
-class _$PlayerStateCopyWithImpl<$Res> implements $PlayerStateCopyWith<$Res> {
-  _$PlayerStateCopyWithImpl(this._value, this._then);
+class _$PlayersListStateCopyWithImpl<$Res>
+    implements $PlayersListStateCopyWith<$Res> {
+  _$PlayersListStateCopyWithImpl(this._value, this._then);
 
-  final PlayerState _value;
+  final PlayersListState _value;
   // ignore: unused_field
-  final $Res Function(PlayerState) _then;
+  final $Res Function(PlayersListState) _then;
 
   @override
   $Res call({
@@ -54,30 +55,31 @@ class _$PlayerStateCopyWithImpl<$Res> implements $PlayerStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_PlayerStateCopyWith<$Res>
-    implements $PlayerStateCopyWith<$Res> {
-  factory _$$_PlayerStateCopyWith(
-          _$_PlayerState value, $Res Function(_$_PlayerState) then) =
-      __$$_PlayerStateCopyWithImpl<$Res>;
+abstract class _$$_PlayersListStateCopyWith<$Res>
+    implements $PlayersListStateCopyWith<$Res> {
+  factory _$$_PlayersListStateCopyWith(
+          _$_PlayersListState value, $Res Function(_$_PlayersListState) then) =
+      __$$_PlayersListStateCopyWithImpl<$Res>;
   @override
   $Res call({AsyncSnapshot<Iterable<PlayerDto>>? field});
 }
 
 /// @nodoc
-class __$$_PlayerStateCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
-    implements _$$_PlayerStateCopyWith<$Res> {
-  __$$_PlayerStateCopyWithImpl(
-      _$_PlayerState _value, $Res Function(_$_PlayerState) _then)
-      : super(_value, (v) => _then(v as _$_PlayerState));
+class __$$_PlayersListStateCopyWithImpl<$Res>
+    extends _$PlayersListStateCopyWithImpl<$Res>
+    implements _$$_PlayersListStateCopyWith<$Res> {
+  __$$_PlayersListStateCopyWithImpl(
+      _$_PlayersListState _value, $Res Function(_$_PlayersListState) _then)
+      : super(_value, (v) => _then(v as _$_PlayersListState));
 
   @override
-  _$_PlayerState get _value => super._value as _$_PlayerState;
+  _$_PlayersListState get _value => super._value as _$_PlayersListState;
 
   @override
   $Res call({
     Object? field = freezed,
   }) {
-    return _then(_$_PlayerState(
+    return _then(_$_PlayersListState(
       field: field == freezed
           ? _value.field
           : field // ignore: cast_nullable_to_non_nullable
@@ -88,22 +90,22 @@ class __$$_PlayerStateCopyWithImpl<$Res> extends _$PlayerStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PlayerState implements _PlayerState {
-  const _$_PlayerState({this.field});
+class _$_PlayersListState implements _PlayersListState {
+  const _$_PlayersListState({this.field});
 
   @override
   final AsyncSnapshot<Iterable<PlayerDto>>? field;
 
   @override
   String toString() {
-    return 'PlayerState(field: $field)';
+    return 'PlayersListState(field: $field)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlayerState &&
+            other is _$_PlayersListState &&
             const DeepCollectionEquality().equals(other.field, field));
   }
 
@@ -113,18 +115,18 @@ class _$_PlayerState implements _PlayerState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_PlayerStateCopyWith<_$_PlayerState> get copyWith =>
-      __$$_PlayerStateCopyWithImpl<_$_PlayerState>(this, _$identity);
+  _$$_PlayersListStateCopyWith<_$_PlayersListState> get copyWith =>
+      __$$_PlayersListStateCopyWithImpl<_$_PlayersListState>(this, _$identity);
 }
 
-abstract class _PlayerState implements PlayerState {
-  const factory _PlayerState(
-      {final AsyncSnapshot<Iterable<PlayerDto>>? field}) = _$_PlayerState;
+abstract class _PlayersListState implements PlayersListState {
+  const factory _PlayersListState(
+      {final AsyncSnapshot<Iterable<PlayerDto>>? field}) = _$_PlayersListState;
 
   @override
   AsyncSnapshot<Iterable<PlayerDto>>? get field;
   @override
   @JsonKey(ignore: true)
-  _$$_PlayerStateCopyWith<_$_PlayerState> get copyWith =>
+  _$$_PlayersListStateCopyWith<_$_PlayersListState> get copyWith =>
       throw _privateConstructorUsedError;
 }

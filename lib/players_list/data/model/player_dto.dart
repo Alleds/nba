@@ -5,9 +5,12 @@ part 'player_dto.g.dart';
 @JsonSerializable()
 class PlayerDto {
   const PlayerDto({
+    this.id,
     this.firstName,
     this.secondName,
   });
+
+  final int? id;
   @JsonKey(name: "first_name")
   final String? firstName;
   @JsonKey(name: "last_name")

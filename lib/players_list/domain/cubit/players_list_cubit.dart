@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:nba/players_list/domain/model/player_state.dart';
+import 'package:nba/players_list/domain/model/players_list_state.dart';
 import 'package:nba/players_list/domain/repository/players_list_repository.dart';
 
 import '../../data/model/player_dto.dart';
 
-class PlayersCubit extends Cubit<PlayerState> {
-  PlayersCubit(this.repository)
+class PlayersListStore extends Cubit<PlayersListState> {
+  PlayersListStore(this.repository)
       : super(
-          const PlayerState(),
+          const PlayersListState(),
         );
+  final int page = 1;
 
   final PlayersListRepository repository;
 
@@ -17,7 +18,7 @@ class PlayersCubit extends Cubit<PlayerState> {
     _onFieldUpdated(
       const AsyncSnapshot.waiting(),
     );
-    return repository.fetchPlayers().then(
+    return repository.fetchPlayers(page: page, count: 20).then(
       (value) {
         _onFieldUpdated(
           AsyncSnapshot.withData(ConnectionState.done, value),
