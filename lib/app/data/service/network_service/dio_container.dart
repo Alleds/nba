@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nba/di/service_locator.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-@Injectable()
+@Singleton()
 class DioProvider {
-
   DioProvider() {
     final options = BaseOptions(
       baseUrl: 'https://free-nba.p.rapidapi.com/',
@@ -17,6 +17,13 @@ class DioProvider {
       },
     );
     _dio = Dio(options);
+    addInterceptor(
+      PrettyDioLogger(
+          requestHeader: true,
+          requestBody: true,
+          responseHeader: true,
+          responseBody: false),
+    );
   }
 
   static const String apiToken =
@@ -25,13 +32,6 @@ class DioProvider {
   Dio? _dio;
 
   Dio get dio => _dio!;
-
-  void updateBaseUrl(String baseUrl) {
-    final newDioOptions = _dio!.options.copyWith(baseUrl: baseUrl);
-    final interceptors = _dio!.interceptors;
-    _dio = Dio(newDioOptions);
-    _dio?.interceptors.addAll(interceptors);
-  }
 
   void addInterceptor(Interceptor interceptor) {
     deleteInterceptor(interceptor.runtimeType);
